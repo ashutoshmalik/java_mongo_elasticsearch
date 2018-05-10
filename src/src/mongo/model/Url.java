@@ -21,8 +21,11 @@ public class Url {
 	public boolean isIncident_url_fields_missing() {
 		return incident_url_fields_missing;
 	}
-	public void setIncident_url_fields_missing(boolean incident_url_fields_missing) {
-		this.incident_url_fields_missing = incident_url_fields_missing;
+	public void setIncident_url_fields_missing(String incident_url_fields_missing) {
+		if (incident_url_fields_missing == "") incident_url_fields_missing = "false";
+		if (incident_url_fields_missing == "FALSE") incident_url_fields_missing = "false";
+		if (incident_url_fields_missing == "TRUE") incident_url_fields_missing = "true";
+		this.incident_url_fields_missing = Boolean.parseBoolean(incident_url_fields_missing);
 	}
 	
 }

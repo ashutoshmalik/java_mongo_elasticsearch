@@ -11,7 +11,7 @@ public class ImportData {
 		if (database.getCollection("crime") == null) database.createCollection("crime");
 		
 		CSVFileReader fileReader = new CSVFileReader();
-		String csvFile = "C:/Users/eashmik/Downloads/gun-violence-data/gun-violence-data_01-2013_03-2018.csv";
+		String csvFile = "C:/Users/eashmik/Downloads/gun-violence-data/gun-violence-data_01-2013_03-2018_#.csv";
 		fileReader.read(csvFile);
 		
 		//Close the database connection
