@@ -1,9 +1,11 @@
 package src.mongo.model;
 
-public class IncidentURL {
+public class Url {
+	
 	private String incident_url;
 	private String source_url;
 	private boolean incident_url_fields_missing; 
+	
 	public String getIncident_url() {
 		return incident_url;
 	}

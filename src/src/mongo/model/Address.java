@@ -5,7 +5,7 @@ package src.mongo.model;
  * @author ashu
  *
  */
-public class IncidentAddress {
+public class Address {
 	
 	private String state;
 	private String city_or_county;

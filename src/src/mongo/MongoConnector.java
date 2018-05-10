@@ -4,6 +4,7 @@ import org.bson.Document;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
+import com.mongodb.MongoClientURI;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoCollection;
@@ -11,9 +12,9 @@ import com.mongodb.client.MongoDatabase;
 
 public class MongoConnector {
 	
-	private String user = "ashu";
+	private String user = "";
 	private String database = "gunviolence";
-	private char[] password = {'a','s','h','u'};
+	private char[] password = {};
 	private MongoClient mongoClient;
 	private int mongoClientPort = 27017;
 	private String mongoClientURI = "localhost";
@@ -30,18 +31,17 @@ public class MongoConnector {
 		this.mongoClientURI = mongoClientURI;
 		this.mongoClientPort = mongoClientPort;
 		
-		this.MakeConnection();		
+		MakeConnection();
 	}
 	
 	private void MakeConnection () {
-		MongoCredential credential = MongoCredential.createCredential(user, database, password);	
-		MongoClientOptions options = MongoClientOptions.builder().sslEnabled(true).build();
+		//MongoCredential credential = MongoCredential.createCredential(user, database, password);	
+		MongoClientOptions options = MongoClientOptions.builder().sslEnabled(false).build();
 		mongoClient = new MongoClient(
-				new ServerAddress(mongoClientURI, mongoClientPort), credential, options);
+				new ServerAddress(mongoClientURI, mongoClientPort));
 	}
 	
-	public MongoDatabase getDatabase (String databaseName) 
-	{
+	public MongoDatabase getDatabase (String databaseName) {
 		return mongoClient.getDatabase(databaseName);
 	}
 	
@@ -49,6 +49,10 @@ public class MongoConnector {
 		MongoDatabase database = getDatabase(databaseName);
 		MongoCollection<Document> collection = database.getCollection(collectionName);		
 		return collection;
+	}
+	
+	public  void CloseConnection () {
+		this.mongoClient.close();
 	}
 	
 }

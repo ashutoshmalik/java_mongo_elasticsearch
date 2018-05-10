@@ -5,7 +5,7 @@ package src.mongo.model;
  * @author ashu
  *
  */
-public class IncidentLocation {
+public class Location {
 	
 	private double latitude; 
 	private double longitude;

@@ -2,9 +2,9 @@ package src.mongo;
 
 import java.util.Date;
 
-import src.mongo.model.IncidentAddress;
-import src.mongo.model.IncidentLocation;
-import src.mongo.model.IncidentURL;
+import src.mongo.model.Address;
+import src.mongo.model.Location;
+import src.mongo.model.Url;
 import src.mongo.model.Participant;
 
 /**
@@ -16,19 +16,19 @@ public class IncidentSchema {
 	
 	private long incident_id; 
     private Date date; 
-	private IncidentAddress incidentAddress;
+	private Address incidentAddress;
 	
 	private int n_killed;
 	private int n_injured; 
 	
-	private IncidentURL incidentURL;
+	private Url incidentURL;
 	
 	private int congressional_district; 
 	private String gun_stolen;
 	private String gun_type;
 	private String incident_characteristics;
 	
-	private IncidentLocation incidentLocation;
+	private Location incidentLocation;
 	
 	private int n_guns_involved; 
 	private String notes; 
@@ -48,13 +48,13 @@ public class IncidentSchema {
 	public Date getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(String date) {
+		this.date = new Date(date);
 	}
-	public IncidentAddress getIncidentAddress() {
+	public Address getIncidentAddress() {
 		return incidentAddress;
 	}
-	public void setIncidentAddress(IncidentAddress incidentAddress) {
+	public void setIncidentAddress(Address incidentAddress) {
 		this.incidentAddress = incidentAddress;
 	}
 	public int getN_killed() {
@@ -69,10 +69,10 @@ public class IncidentSchema {
 	public void setN_injured(int n_injured) {
 		this.n_injured = n_injured;
 	}
-	public IncidentURL getIncidentURL() {
+	public Url getIncidentURL() {
 		return incidentURL;
 	}
-	public void setIncidentURL(IncidentURL incidentURL) {
+	public void setIncidentURL(Url incidentURL) {
 		this.incidentURL = incidentURL;
 	}
 	public int getCongressional_district() {
@@ -99,10 +99,10 @@ public class IncidentSchema {
 	public void setIncident_characteristics(String incident_characteristics) {
 		this.incident_characteristics = incident_characteristics;
 	}
-	public IncidentLocation getIncidentLocation() {
+	public Location getIncidentLocation() {
 		return incidentLocation;
 	}
-	public void setIncidentLocation(IncidentLocation incidentLocation) {
+	public void setIncidentLocation(Location incidentLocation) {
 		this.incidentLocation = incidentLocation;
 	}
 	public int getN_guns_involved() {
@@ -141,5 +141,17 @@ public class IncidentSchema {
 	public void setState_senate_district(String state_senate_district) {
 		this.state_senate_district = state_senate_district;
 	}
+	
+	@Override
+	public String toString() {
+		return "IncidentSchema [incident_id=" + incident_id + ", date=" + date + ", incidentAddress=" + incidentAddress
+				+ ", n_killed=" + n_killed + ", n_injured=" + n_injured + ", incidentURL=" + incidentURL
+				+ ", congressional_district=" + congressional_district + ", gun_stolen=" + gun_stolen + ", gun_type="
+				+ gun_type + ", incident_characteristics=" + incident_characteristics + ", incidentLocation="
+				+ incidentLocation + ", n_guns_involved=" + n_guns_involved + ", notes=" + notes + ", participant="
+				+ participant + ", sources=" + sources + ", state_house_district=" + state_house_district
+				+ ", state_senate_district=" + state_senate_district + "]";
+	}
+	
 	
 }
