@@ -1,7 +1,5 @@
 package src.mongo.model;
 
-import org.bson.Document;
-
 /**
  * 
  * @author ashu

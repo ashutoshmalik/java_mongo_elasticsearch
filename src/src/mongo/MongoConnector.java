@@ -6,8 +6,6 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
-import com.mongodb.MongoClientURI;
-import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -40,9 +38,9 @@ public class MongoConnector {
 	
 	private void MakeConnection () {
 		//MongoCredential credential = MongoCredential.createCredential(user, database, password);	
-		MongoClientOptions options = MongoClientOptions.builder().sslEnabled(false).build();
+		MongoClientOptions options = MongoClientOptions.builder().socketKeepAlive(true).build();
 		mongoClient = new MongoClient(
-				new ServerAddress(mongoClientURI, mongoClientPort));
+				new ServerAddress(mongoClientURI, mongoClientPort), options);
 	}
 	
 	public MongoDatabase getDatabase (String databaseName) {
@@ -64,17 +62,3 @@ public class MongoConnector {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

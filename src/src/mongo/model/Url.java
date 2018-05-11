@@ -1,7 +1,5 @@
 package src.mongo.model;
 
-import org.bson.Document;
-
 public class Url {
 	
 	private String incident_url;

@@ -202,7 +202,7 @@ public class CSVFileReader {
 					incidentSchema.append("state_senate_district", tempArr[28]);
 				}
 				
-				System.out.println(incidentSchema);
+				//System.out.println(incidentSchema);
 				
 				collection.insertOne(incidentSchema);
 			}

@@ -1,7 +1,5 @@
 package src.mongo.model;
 
-import org.bson.Document;
-
 public class Participant {
 	
 	private String participant_age;
