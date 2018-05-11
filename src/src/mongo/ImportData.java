@@ -8,11 +8,14 @@ public class ImportData {
 		
 		MongoConnector connector = new MongoConnector();
 		MongoDatabase database = connector.getDatabase("gunviolence");
-		if (database.getCollection("crime") == null) database.createCollection("crime");
+		if (database.getCollection("crime") == null ) 
+			database.createCollection("crime");
+		
+		database = database.withCodecRegistry(connector.getCustomCodecRegistry());
 		
 		CSVFileReader fileReader = new CSVFileReader();
 		String csvFile = "C:/Users/eashmik/Downloads/gun-violence-data/gun-violence-data_01-2013_03-2018_#.csv";
-		fileReader.read(csvFile);
+		fileReader.insertDataFromFile(database, csvFile);
 		
 		//Close the database connection
 		connector.CloseConnection();

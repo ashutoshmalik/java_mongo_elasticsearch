@@ -1,5 +1,7 @@
 package src.mongo.model;
 
+import org.bson.Document;
+
 /**
  * 
  * @author ashu
@@ -36,6 +38,5 @@ public class Address {
 	public String toString() {
 		return "Address [state=" + state + ", city_or_county=" + city_or_county + ", address=" + address + "]";
 	}
-	
 	
 }

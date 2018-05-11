@@ -1,5 +1,7 @@
 package src.mongo.model;
 
+import org.bson.Document;
+
 public class Url {
 	
 	private String incident_url;
@@ -27,5 +29,11 @@ public class Url {
 		if (incident_url_fields_missing == "TRUE") incident_url_fields_missing = "true";
 		this.incident_url_fields_missing = Boolean.parseBoolean(incident_url_fields_missing);
 	}
+	@Override
+	public String toString() {
+		return "Url [incident_url=" + incident_url + ", source_url=" + source_url + ", incident_url_fields_missing="
+				+ incident_url_fields_missing + "]";
+	}
+	
 	
 }

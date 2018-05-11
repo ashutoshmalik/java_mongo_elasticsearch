@@ -42,16 +42,14 @@ public class IncidentSchema {
 	public long getIncident_id() {
 		return incident_id;
 	}
-	public void setIncident_id(String incident_id) {
-		if (incident_id == "") incident_id = "0";
-		if (incident_id.isEmpty()) incident_id = "0";
-		this.incident_id = Integer.parseInt(incident_id);
+	public void setIncident_id(Long incident_id) {
+		this.incident_id = incident_id;
 	}
 	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
-		this.date = new Date(date);
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	public Address getIncidentAddress() {
 		return incidentAddress;
@@ -62,18 +60,14 @@ public class IncidentSchema {
 	public int getN_killed() {
 		return n_killed;
 	}
-	public void setN_killed(String n_killed) {
-		if (n_killed == "") n_killed = "0";
-		if (n_killed.isEmpty()) n_killed = "0";
-		this.n_killed = Integer.parseInt(n_killed);
+	public void setN_killed(int n_killed) {
+		this.n_killed = n_killed;
 	}
 	public int getN_injured() {
 		return n_injured;
 	}
-	public void setN_injured(String n_injured) {
-		if (n_injured == "") n_injured = "0";
-		if (n_injured.isEmpty()) n_injured = "0";
-		this.n_injured = Integer.parseInt(n_injured);
+	public void setN_injured(int n_injured) {
+		this.n_injured = n_injured;
 	}
 	public Url getIncidentURL() {
 		return incidentURL;
@@ -84,10 +78,8 @@ public class IncidentSchema {
 	public int getCongressional_district() {
 		return congressional_district;
 	}
-	public void setCongressional_district(String congressional_district) {
-		if (congressional_district == "") congressional_district = "0";
-		if (congressional_district.isEmpty()) congressional_district = "0";
-		this.congressional_district = Integer.parseInt(congressional_district);
+	public void setCongressional_district(int congressional_district) {
+		this.congressional_district = congressional_district;
 	}
 	public String getGun_stolen() {
 		return gun_stolen;
@@ -116,10 +108,8 @@ public class IncidentSchema {
 	public int getN_guns_involved() {
 		return n_guns_involved;
 	}
-	public void setN_guns_involved(String n_guns_involved) {
-		if (n_guns_involved == "" ) n_guns_involved = "0";
-		if (n_guns_involved.isEmpty()) n_guns_involved = "0";
-		this.n_guns_involved = Integer.parseInt(n_guns_involved);
+	public void setN_guns_involved(int n_guns_involved) {
+		this.n_guns_involved = n_guns_involved;
 	}
 	public String getNotes() {
 		return notes;

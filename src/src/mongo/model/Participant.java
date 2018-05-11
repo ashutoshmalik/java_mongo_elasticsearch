@@ -1,5 +1,7 @@
 package src.mongo.model;
 
+import org.bson.Document;
+
 public class Participant {
 	
 	private String participant_age;
@@ -9,6 +11,7 @@ public class Participant {
 	private String participant_relationship ;
 	private String participant_status; 
 	private String participant_type ;
+	
 	
 	public String getParticipant_age() {
 		return participant_age;
@@ -52,5 +55,14 @@ public class Participant {
 	public void setParticipant_type(String participant_type) {
 		this.participant_type = participant_type;
 	}
+	@Override
+	public String toString() {
+		return "Participant [participant_age=" + participant_age + ", participant_age_group=" + participant_age_group
+				+ ", participant_gender=" + participant_gender + ", participant_name=" + participant_name
+				+ ", participant_relationship=" + participant_relationship + ", participant_status="
+				+ participant_status + ", participant_type=" + participant_type + "]";
+	}
+	
+	
 	
 }
